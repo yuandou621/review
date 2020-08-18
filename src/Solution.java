@@ -28,4 +28,28 @@ public class Solution {
         int right = TreeDepth(root.right);
         return Math.max(left,right) +1;
     }
+
+    public int Add(int num1,int num2) {
+        while(num2 != 0){
+            int num = (num1 & num2) << 1;
+            num1 = num1 ^ num2;
+            num2 = num;
+        }
+        return num1;
+    }
+    public int[] multiply(int[] A) {
+        int length = A.length;
+        int[] B = new int[length];
+        int ret = 1;
+        for(int i = 0; i < length; i++){
+            B[i] = ret;
+            ret *= A[i];
+        }
+        ret = 1;
+        for(int i = length -1; i >= 0; i--){
+            B[i] *= ret;
+            ret *= A[i];
+        }
+        return B;
+    }
 }
