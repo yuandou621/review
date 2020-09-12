@@ -41,14 +41,14 @@ public class Solution {
         int length = A.length;
         int[] B = new int[length];
         int ret = 1;
-        for(int i = 0; i < length; i++){
+        for (int i = 0; i < length ; i++) {
             B[i] = ret;
-            ret *= A[i];
+            ret = ret * A[i];
         }
         ret = 1;
-        for(int i = length -1; i >= 0; i--){
-            B[i] *= ret;
-            ret *= A[i];
+        for (int i = length -1; i >= 0 ; i--) {
+            B[i] = B[i] * ret;
+            ret = ret * A[i];
         }
         return B;
     }
