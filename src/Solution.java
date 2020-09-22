@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Solution {
 
@@ -51,5 +52,44 @@ public class Solution {
             ret = ret * A[i];
         }
         return B;
+    }
+
+
+
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         * @param nums int整型一维数组
+         * @return int整型
+         */
+        public int thirdMax (int[] nums) {
+            int count = 0;
+            Arrays.sort(nums);
+            if(nums.length == 0){
+                return 0;
+            }
+            for (int i = nums.length; i > 0 ; i--) {
+                if(nums[i] > nums[i-1]){
+                    count ++;
+                }
+                if(count == 3){
+                    return nums[i];
+                }
+            }
+                return nums[nums.length-1];
+
+        }
+    public int maxSubArray (int[] nums) {
+            int index = 0;
+            int max = 0;
+            for (int i = 0; i < nums.length ; i++) {
+                  for (int j = i; j < nums.length ; j++) {
+                     index += nums[j];
+                      if(index > max){
+                          max = index;
+                      }
+                  }
+            }
+        return max;
     }
 }
